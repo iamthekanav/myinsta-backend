@@ -691,11 +691,13 @@ const getFeed=async (req,res)=>{
 
 app.get("/feed/posts/:uid",getFeed);
 
-
+app.get("/",(req,res)=>{
+    res.send("Hello Backend Started")
+});
 //AUTHENTICATION BEGINS
-
-app.listen(3000,function(){
-    console.log(`App running at 3000`);
+let port = process.env.PORT || 3000;
+app.listen(port,function(){
+    console.log(`App running at ${port}`);
 })
 app.use(cookieSession({
     maxAge: 24*60*60*1000,
